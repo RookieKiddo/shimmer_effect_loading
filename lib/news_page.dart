@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import './constants.dart';
 import './skeleton.dart';
-
-import 'news_card.dart';
+import 'error_page.dart';
 
 class NewsPage extends StatefulWidget {
   const NewsPage({Key? key}) : super(key: key);
@@ -46,14 +45,17 @@ class _NewsPageState extends State<NewsPage> {
                 separatorBuilder: (context, index) =>
                     const SizedBox(height: defaultPadding),
               )
-            : ListView.separated(
-                itemCount: 6,
-                itemBuilder: (context, index) => NewsCard(
-                  image: "assets/images/Image_$index.png",
-                ),
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: defaultPadding),
-              ),
+            // : ListView.separated(
+            //     itemCount: 6,
+            //     itemBuilder: (context, index) => NewsCard(
+            //       image: "assets/images/Image_$index.png",
+            //     ),
+            //     separatorBuilder: (context, index) =>
+            //         const SizedBox(height: defaultPadding),
+            //   ),
+            : ErrorMessage(
+                error:
+                    "The route on the API that you are looking for seems to be missing"),
       ),
     );
   }
